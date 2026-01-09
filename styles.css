@@ -1,517 +1,446 @@
 :root {
-  --bg: #ffffff;
-  --text: #000000;
-  --grey: #555;
-  --cyan: #03e9f4;
-}
-
-
-body {
-  background-color: var(--bg);
-  color: var(--text);
-  transition: background-color 0.3s, color 0.3s;
-}
-
-/* Dark mode */
-body.dark {
-  --bg: #121212;
-  --text: #ffffff;
-}
-
-nav {
-  text-align: right;
-  font-family: "Comic Neue", cursive;
-  font-weight: 400;
-  font-style: normal;
-}
-
-h1, footer > div > p {
-  text-align: center;
-  font-family: "Comic Neue", cursive;
-  font-weight: 400;
-  font-style: normal;
-}
-
-/* Button Styling for Light / Dark Toggle */
-/* From Uiverse.io by chicogale */ 
-.cyber-toggle-wrapper {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  padding: 15px;
-}
-
-.cyber-toggle-checkbox {
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.cyber-toggle {
-  position: relative;
-  display: inline-block;
-  width: 64px;
-  height: 32px;
-  cursor: pointer;
-}
-
-.cyber-toggle-track {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #111;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow:
-    0 4px 8px rgba(0, 0, 0, 0.5),
-    inset 0 0 4px rgba(0, 0, 0, 0.8);
-  transition: all 0.4s cubic-bezier(0.3, 1.5, 0.7, 1);
-}
-
-.cyber-toggle-track::before {
-  content: "";
-  position: absolute;
-  inset: 2px;
-  border-radius: 14px;
-  background: #222;
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
-  z-index: 0;
-  transition: all 0.4s ease;
-}
-
-.cyber-toggle-track-glow {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(90deg, #03e9f4, #4a00e0);
-  opacity: 0;
-  border-radius: 16px;
-  z-index: 1;
-  transition: all 0.4s ease;
-}
-
-.cyber-toggle-thumb {
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  width: 24px;
-  height: 24px;
-  background: #151515;
-  border-radius: 50%;
-  z-index: 2;
-  transition: all 0.4s cubic-bezier(0.3, 1.5, 0.7, 1);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
-}
-
-.cyber-toggle-thumb-shadow {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle at 30% 30%,
-    rgba(255, 255, 255, 0.1),
-    transparent 70%
-  );
-  z-index: 1;
-}
-
-.cyber-toggle-thumb-highlight {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle at 70% 70%,
-    rgba(0, 0, 0, 0.2),
-    transparent 70%
-  );
-  z-index: 1;
-}
-
-.cyber-toggle-thumb-icon {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 2;
-  opacity: 0.7;
-  transition:
-    opacity 0.4s ease,
-    transform 0.4s ease;
-}
-
-.cyber-toggle-thumb-icon svg {
-  width: 14px;
-  height: 14px;
-  fill: #555;
-  transition:
-    fill 0.4s ease,
-    transform 0.4s ease;
-}
-
-.cyber-toggle-track-dots {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding-right: 10px;
-  z-index: 1;
-}
-
-.cyber-toggle-track-dot {
-  width: 3px;
-  height: 3px;
-  border-radius: 50%;
-  background: #444;
-  margin-left: 3px;
-  opacity: 0.5;
-  transition: all 0.4s ease;
-}
-
-.cyber-toggle-particles {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.cyber-toggle-particle {
-  position: absolute;
-  width: 3px;
-  height: 3px;
-  background: #03e9f4;
-  border-radius: 50%;
-  opacity: 0;
-  filter: blur(1px);
-  transition: all 0.3s ease;
-  box-shadow: 0 0 4px rgba(3, 233, 244, 0.8);
-}
-
-.cyber-toggle-particle:nth-child(1) {
-  top: 15%;
-  right: 20%;
-}
-
-.cyber-toggle-particle:nth-child(2) {
-  top: 45%;
-  right: 30%;
-}
-
-.cyber-toggle-particle:nth-child(3) {
-  top: 25%;
-  right: 40%;
-}
-
-.cyber-toggle-particle:nth-child(4) {
-  top: 60%;
-  right: 15%;
-}
-
-.cyber-toggle-labels {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-top: 8px;
-  font-size: 10px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.cyber-toggle-label-off {
-  color: #555;
-  transition: all 0.4s ease;
-}
-
-.cyber-toggle-label-on {
-  color: #555;
-  transition: all 0.4s ease;
-}
-
-/* Stati attivi */
-.cyber-toggle-checkbox:checked + .cyber-toggle .cyber-toggle-track-glow {
-  opacity: 0.5;
-}
-
-.cyber-toggle-checkbox:checked + .cyber-toggle .cyber-toggle-thumb {
-  left: calc(100% - 28px);
-  background: #222;
-}
-
-.cyber-toggle-checkbox:checked + .cyber-toggle .cyber-toggle-thumb-icon {
-  transform: rotate(360deg);
-}
-
-.cyber-toggle-checkbox:checked + .cyber-toggle .cyber-toggle-thumb-icon svg {
-  fill: #03e9f4;
-}
-
-.cyber-toggle-checkbox:checked + .cyber-toggle .cyber-toggle-track-dot {
-  background: #03e9f4;
-  box-shadow: 0 0 4px #03e9f4;
-  opacity: 1;
-}
-
-.cyber-toggle-checkbox:checked ~ .cyber-toggle-labels .cyber-toggle-label-on {
-  color: #03e9f4;
-  text-shadow: 0 0 5px rgba(3, 233, 244, 0.5);
-}
-
-.cyber-toggle-checkbox:not(:checked)
-  ~ .cyber-toggle-labels
-  .cyber-toggle-label-off {
-  color: #aaa;
-}
-
-/* Animazione particelle quando attivo */
-.cyber-toggle-checkbox:checked + .cyber-toggle .cyber-toggle-particle {
-  opacity: 1;
-  animation: cyber-toggle-float 3s infinite alternate;
-}
-
-.cyber-toggle-checkbox:checked
-  + .cyber-toggle
-  .cyber-toggle-particle:nth-child(1) {
-  animation-delay: 0s;
-}
-
-.cyber-toggle-checkbox:checked
-  + .cyber-toggle
-  .cyber-toggle-particle:nth-child(2) {
-  animation-delay: 0.5s;
-}
-
-.cyber-toggle-checkbox:checked
-  + .cyber-toggle
-  .cyber-toggle-particle:nth-child(3) {
-  animation-delay: 1s;
-}
-
-.cyber-toggle-checkbox:checked
-  + .cyber-toggle
-  .cyber-toggle-particle:nth-child(4) {
-  animation-delay: 1.5s;
-}
-
-/* Effetto hover */
-.cyber-toggle:hover .cyber-toggle-track::before {
-  background: #272727;
-}
-
-.cyber-toggle:hover .cyber-toggle-thumb {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-}
-
-.cyber-toggle-checkbox:checked + .cyber-toggle:hover .cyber-toggle-track-glow {
-  opacity: 0.7;
-}
-
-/* Effetto focus per accessibilità */
-.cyber-toggle-checkbox:focus + .cyber-toggle {
-  outline: none;
-}
-
-.cyber-toggle-checkbox:focus + .cyber-toggle::after {
-  content: "";
-  position: absolute;
-  inset: -4px;
-  border-radius: 20px;
-  border: 2px solid rgba(3, 233, 244, 0.5);
-  opacity: 0.5;
-}
-
-@keyframes cyber-toggle-float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-4px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-#box_1 {
-  height: 80vh;
-  width: 25%;
-  border-radius: 2%;
-  margin-left: 1%;
-}
-
-#box_2 {
-  height: 80vh;
-  width: 40%;
-  border-radius: 2%;
-}
-
-#box_3 {
-  margin-top:4% ;
-  height: 72vh;
-  width: 57vh;
-  border-radius: 2%;
-  justify-content: center;
-}
-
-.box {
-  background-color: var(--cyan);
-}
-
-body.dark .box {
-  background-color: var(--grey);
-}
-
-.center {
-  margin-top: 5%;
-  margin-bottom: 5%;
-  margin-left: 3%;
-}
-
-#cent {
-  display: block;
-  padding-top: 4%;
-}
-
-#round-corner {
-  border-radius: 5%;
-}
-
-main {
-  display: flex;
-  gap: 1%;
-}
-
-footer {
-  margin-top:1%;
-}
-
-/* New */
-body {
-  background-color: lightgreen;
-
-  /* Smoothly transition the background color */
-  transition: background-color .5s;
-}
-
-.player {
-  height: 80vh;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: 0px;
-}
-
-.details {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.track-art {
-  margin: 5px;
-  height: 250px;
-  width: 250px;
-  background-image: url("https://images.pexels.com/photos/262034/pexels-photo-262034.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
-  background-size: cover;
-  border-radius: 15%;
-}
-
-.now-playing {
-  font-size: 1rem;
-}
-
-.track-name {
-  font-size: 3rem;
-}
-
-.track-artist {
-  font-size: 1.5rem;
-}
-
-.buttons {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.playpause-track, .prev-track, .next-track {
-  padding: 25px;
-  opacity: 0.8;
-
-  /* Smoothly transition the opacity */
-  transition: opacity .2s;
-}
-
-.playpause-track:hover, .prev-track:hover, .next-track:hover {
-  opacity: 1.0;
-}
-
-.slider_container {
-  width: 75%;
-  max-width: 400px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Modify the appearance of the slider */
-.seek_slider, .volume_slider {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  height: 5px;
-  background: black;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-}
-
-/* Modify the appearance of the slider thumb */
-.seek_slider::-webkit-slider-thumb, .volume_slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  width: 15px;
-  height: 15px;
-  background: white;
-  cursor: pointer;
-  border-radius: 50%;
-}
-
-.seek_slider:hover, .volume_slider:hover {
-  opacity: 1.0;
-}
-
-.seek_slider {
-  width: 60%;
-}
-
-.volume_slider {
-  width: 30%;
-}
-
-.current-time, .total-duration {
-  padding: 10px;
-}
-
-i.fa-volume-down, i.fa-volume-up {
-  padding: 10px;
-}
-
-i.fa-play-circle, i.fa-pause-circle, i.fa-step-forward, i.fa-step-backward {
-  cursor: pointer;
-}
+            --bg: #ffffff;
+            --text: #000000;
+            --grey: #555;
+            --cyan: #03e9f4;
+        }
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        /* Dark mode */
+        body.dark {
+            --bg: #121212;
+            --text: #ffffff;
+        }
+        nav {
+            text-align: right;
+            font-family: "Comic Neue", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+        h1,
+        footer>div>p {
+            text-align: center;
+            font-family: "Comic Neue", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+        /* Button Styling for Light / Dark Toggle */
+        /* From Uiverse.io by chicogale */
+        .cyber-toggle-wrapper {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            padding: 15px;
+        }
+        .cyber-toggle-checkbox {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .cyber-toggle {
+            position: relative;
+            display: inline-block;
+            width: 64px;
+            height: 32px;
+            cursor: pointer;
+        }
+        .cyber-toggle-track {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #111;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow:
+                0 4px 8px rgba(0, 0, 0, 0.5),
+                inset 0 0 4px rgba(0, 0, 0, 0.8);
+            transition: all 0.4s cubic-bezier(0.3, 1.5, 0.7, 1);
+        }
+        .cyber-toggle-track::before {
+            content: "";
+            position: absolute;
+            inset: 2px;
+            border-radius: 14px;
+            background: #222;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+            z-index: 0;
+            transition: all 0.4s ease;
+        }
+        .cyber-toggle-track-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, #03e9f4, #4a00e0);
+            opacity: 0;
+            border-radius: 16px;
+            z-index: 1;
+            transition: all 0.4s ease;
+        }
+        .cyber-toggle-thumb {
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            width: 24px;
+            height: 24px;
+            background: #151515;
+            border-radius: 50%;
+            z-index: 2;
+            transition: all 0.4s cubic-bezier(0.3, 1.5, 0.7, 1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+        }
+        .cyber-toggle-thumb-shadow {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%,
+                    rgba(255, 255, 255, 0.1),
+                    transparent 70%);
+            z-index: 1;
+        }
+        .cyber-toggle-thumb-highlight {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle at 70% 70%,
+                    rgba(0, 0, 0, 0.2),
+                    transparent 70%);
+            z-index: 1;
+        }
+        .cyber-toggle-thumb-icon {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+            opacity: 0.7;
+            transition:
+                opacity 0.4s ease,
+                transform 0.4s ease;
+        }
+        .cyber-toggle-thumb-icon svg {
+            width: 14px;
+            height: 14px;
+            fill: #555;
+            transition:
+                fill 0.4s ease,
+                transform 0.4s ease;
+        }
+        .cyber-toggle-track-dots {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding-right: 10px;
+            z-index: 1;
+        }
+        .cyber-toggle-track-dot {
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: #444;
+            margin-left: 3px;
+            opacity: 0.5;
+            transition: all 0.4s ease;
+        }
+        .cyber-toggle-particles {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .cyber-toggle-particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: #03e9f4;
+            border-radius: 50%;
+            opacity: 0;
+            filter: blur(1px);
+            transition: all 0.3s ease;
+            box-shadow: 0 0 4px rgba(3, 233, 244, 0.8);
+        }
+        .cyber-toggle-particle:nth-child(1) {
+            top: 15%;
+            right: 20%;
+        }
+        .cyber-toggle-particle:nth-child(2) {
+            top: 45%;
+            right: 30%;
+        }
+        .cyber-toggle-particle:nth-child(3) {
+            top: 25%;
+            right: 40%;
+        }
+        .cyber-toggle-particle:nth-child(4) {
+            top: 60%;
+            right: 15%;
+        }
+        .cyber-toggle-labels {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 8px;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .cyber-toggle-label-off {
+            color: #555;
+            transition: all 0.4s ease;
+        }
+        .cyber-toggle-label-on {
+            color: #555;
+            transition: all 0.4s ease;
+        }
+        /* Stati attivi */
+        .cyber-toggle-checkbox:checked+.cyber-toggle .cyber-toggle-track-glow {
+            opacity: 0.5;
+        }
+        .cyber-toggle-checkbox:checked+.cyber-toggle .cyber-toggle-thumb {
+            left: calc(100% - 28px);
+            background: #222;
+        }
+        .cyber-toggle-checkbox:checked+.cyber-toggle .cyber-toggle-thumb-icon {
+            transform: rotate(360deg);
+        }
+        .cyber-toggle-checkbox:checked+.cyber-toggle .cyber-toggle-thumb-icon svg {
+            fill: #03e9f4;
+        }
+        .cyber-toggle-checkbox:checked+.cyber-toggle .cyber-toggle-track-dot {
+            background: #03e9f4;
+            box-shadow: 0 0 4px #03e9f4;
+            opacity: 1;
+        }
+        .cyber-toggle-checkbox:checked~.cyber-toggle-labels .cyber-toggle-label-on {
+            color: #03e9f4;
+            text-shadow: 0 0 5px rgba(3, 233, 244, 0.5);
+        }
+        .cyber-toggle-checkbox:not(:checked)~.cyber-toggle-labels .cyber-toggle-label-off {
+            color: #aaa;
+        }
+        /* Animazione particelle quando attivo */
+        .cyber-toggle-checkbox:checked+.cyber-toggle .cyber-toggle-particle {
+            opacity: 1;
+            animation: cyber-toggle-float 3s infinite alternate;
+        }
+        .cyber-toggle-checkbox:checked+.cyber-toggle .cyber-toggle-particle:nth-child(1) {
+            animation-delay: 0s;
+        }
+        .cyber-toggle-checkbox:checked+.cyber-toggle .cyber-toggle-particle:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+        .cyber-toggle-checkbox:checked+.cyber-toggle .cyber-toggle-particle:nth-child(3) {
+            animation-delay: 1s;
+        }
+        .cyber-toggle-checkbox:checked+.cyber-toggle .cyber-toggle-particle:nth-child(4) {
+            animation-delay: 1.5s;
+        }
+        /* Effetto hover */
+        .cyber-toggle:hover .cyber-toggle-track::before {
+            background: #272727;
+        }
+        .cyber-toggle:hover .cyber-toggle-thumb {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+        }
+        .cyber-toggle-checkbox:checked+.cyber-toggle:hover .cyber-toggle-track-glow {
+            opacity: 0.7;
+        }
+        /* Effetto focus per accessibilità */
+        .cyber-toggle-checkbox:focus+.cyber-toggle {
+            outline: none;
+        }
+        .cyber-toggle-checkbox:focus+.cyber-toggle::after {
+            content: "";
+            position: absolute;
+            inset: -4px;
+            border-radius: 20px;
+            border: 2px solid rgba(3, 233, 244, 0.5);
+            opacity: 0.5;
+        }
+        @keyframes cyber-toggle-float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-4px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+        #box_1 {
+            height: 80vh;
+            width: 25%;
+            border-radius: 2%;
+            margin-left: 1%;
+        }
+        #box_2 {
+            height: 80vh;
+            width: 40%;
+            border-radius: 2%;
+        }
+        #box_3 {
+            margin-top: 4%;
+            height: 72vh;
+            width: 57vh;
+            border-radius: 2%;
+            justify-content: center;
+        }
+        .box {
+            background-color: var(--cyan);
+        }
+        body.dark .box {
+            background-color: var(--grey);
+        }
+        .center {
+            margin-top: 5%;
+            margin-bottom: 5%;
+            margin-left: 3%;
+        }
+        #cent {
+            display: block;
+            padding-top: 4%;
+        }
+        #round-corner {
+            border-radius: 5%;
+        }
+        main {
+            display: flex;
+            gap: 1%;
+        }
+        footer {
+            margin-top: 1%;
+        }
+        /* New */
+        .song-card {
+            padding: 10px;
+            margin: 8px 0;
+            background: var(--bg);
+            color: var(--text);
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .song-card:hover {
+            opacity: 0.8;
+        }
+        .player {
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            margin-top: 0px;
+        }
+        .details {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .track-art {
+            margin: 5px;
+            height: 250px;
+            width: 250px;
+            background-image: url("https://images.pexels.com/photos/262034/pexels-photo-262034.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+            background-size: cover;
+            border-radius: 15%;
+        }
+        .now-playing {
+            font-size: 1rem;
+        }
+        .track-name {
+            font-size: 3rem;
+        }
+        .track-artist {
+            font-size: 1.5rem;
+        }
+        .buttons {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .playpause-track,
+        .prev-track,
+        .next-track {
+            padding: 25px;
+            opacity: 0.8;
+            /* Smoothly transition the opacity */
+            transition: opacity .2s;
+        }
+        .playpause-track:hover,
+        .prev-track:hover,
+        .next-track:hover {
+            opacity: 1.0;
+        }
+        .slider_container {
+            width: 75%;
+            max-width: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /* Modify the appearance of the slider */
+        .seek_slider,
+        .volume_slider {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            height: 5px;
+            background: black;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+        /* Modify the appearance of the slider thumb */
+        .seek_slider::-webkit-slider-thumb,
+        .volume_slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            background: white;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        .seek_slider:hover,
+        .volume_slider:hover {
+            opacity: 1.0;
+        }
+        .seek_slider {
+            width: 60%;
+        }
+        .volume_slider {
+            width: 30%;
+        }
+        .current-time,
+        .total-duration {
+            padding: 10px;
+        }
+        i.fa-volume-down,
+        i.fa-volume-up {
+            padding: 10px;
+        }
+        i.fa-play-circle,
+        i.fa-pause-circle,
+        i.fa-step-forward,
+        i.fa-step-backward {
+            cursor: pointer;
+        }
